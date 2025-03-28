@@ -1,0 +1,201 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container { /* Contenedor principal de mi pagina */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1350px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) { /* Media query es para las pantallas pequeñas */
+    .container {
+        padding: 10px;
+        width: 80%;
+    }
+}
+
+body{ 
+    background: linear-gradient(135deg, #f5f0d6, #d1b361);
+    display: grid;
+    font-family: 'Roboto', sans-serif;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    height: 100vh;
+    margin: 0;
+    letter-spacing: 2px;
+    animation: desvanecer 2s forwards; /* este sirve para que la página se desvanezca al cargar */
+}
+
+/* Animación de desvanecimiento */
+@keyframes desvanecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Header es el encabezado de la pagina */
+header {
+    grid-area: header;
+    background-image: url("images/cocina.png"); /* es el fondo pero del encabezado */
+    background-size: cover;
+    background-position: center;
+    color: rgb(2, 2, 2);
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    align-items: center;
+    height: 35vh;
+    text-shadow: 2px 2px 4px rgba(247, 242, 242, 0.7);
+    font-size: 1.5em;
+    border-radius: 15px;
+}
+
+main{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+h1{
+    font-family: 'Lilita One', sans-serif;
+    font-size: 3em;
+}
+
+h2{
+    font-family: 'Lilita One', sans-serif;
+    font-size: 2em;
+    font-weight: 500;
+    text-transform: capitalize;
+    border: solid 2px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+article > ul{
+    line-height: 5vh;
+    margin-left: 30px;
+}
+
+aside > img{
+    width: 300px;
+    height: 200px;
+    display: block;
+    object-fit: cover;
+    margin-top: 20px;
+    border-radius: 20px;
+    max-width: 600px; /* es el tamaño maximo de las imagenes */
+}
+
+@media (max-width: 768px) {
+    aside > img {
+        width: 100%;
+        height: auto;
+        max-width: none;
+    }
+}
+
+.button{
+    background-color: #e66700;
+    color: rgb(19, 18, 18);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+/* el hover es para cuando el mouse pase por encima del botón */
+.button:hover {
+    background-color: #f0ec17;
+}
+
+.tarjeta-receta{
+    box-shadow: 0px 10px 20px rgba(65, 4, 207, 0.1);
+    padding: 1.5rem;
+    width: 350px;
+    margin: 2px;
+    transition: all 0.3s ease;
+    border: 1px solid #dfdc08;
+    background: linear-gradient(135deg, #e09128, #c0ae5f);
+    border-radius: 10px;
+}
+
+.tarjeta-receta:hover{
+    transform: scale(1.05); /* es el tamaño que se le pone a la tarjeta cuando se pasa el mouse por encima */
+    box-shadow: 0px 10px 20px rgba(12, 8, 209, 0.3); /* es la sombra que se le pone a la tarjeta cuando se pasa el mouse por encima */
+} 
+
+.recetas-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+.control-group{
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .recetas-container {
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+    }
+    
+    .tarjeta-receta{
+        width: 80%;
+    }
+}
+
+/* Footer  es el pie de pagina*/
+footer {
+    grid-area: footer;
+    background-color: #ce9833;
+    color: rgb(5, 5, 5);
+    padding: 1rem;
+    text-align: center;
+    height: 20vh;
+    gap: 200px;
+    border-radius: 15px;
+}
+
+/* el h2 es el titulo del pie de pagina */
+footer > h2 {
+    border: none;
+    margin-top: 5px;
+}
+
+footer > div{
+    margin-top: 15px;
+}
+
+footer > div > a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-right: 25px;
+}
+
+footer > div > a:hover{
+    color: rgb(190, 202, 16);
+    background-color: black;
+}
